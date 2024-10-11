@@ -32,7 +32,8 @@ public class MedicoController {
 
     @GetMapping
     public ResponseEntity<Page<MedicoList>> obterMedicos(@PageableDefault(size = 10, sort = {"nome"}) Pageable pagina){
-       var page =  repository.findAll(pagina).map(MedicoList::new);
+
+       var page = repository.findAll(pagina).map(MedicoList::new);
        return ResponseEntity.ok(page);
     }
 
